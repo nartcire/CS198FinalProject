@@ -1,0 +1,71 @@
+const express = require("express");
+const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const router = express.Router();
+
+const User = require("../models/User");
+
+/**
+ * @method - POST
+ * @param - /signup
+ * @description - User SignUp
+ */
+
+router.post(
+  "/signup",
+  [
+    check("username", "Please Enter a Valid Username").not().isEmpty(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        errors: errors.array(),
+      });
+    }
+
+    const { username, score } = req.body;
+    try {
+      user = new User({
+        username,
+        score,
+      });
+
+      await user.save();
+
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+
+      jwt.sign(
+        payload,
+        "randomString",
+        {
+          expiresIn: 10000,
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.status(200).json({
+            token,
+          });
+        }
+      );
+      console.log(user.username);
+      console.log(user.score);
+      /*User.find().sort({score: -1}).toArray(function(err, result) {
+        console.log(Array.from(result));
+        res.send({ status: true, msg: result });
+      });
+      */
+
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).send("Error in Saving");
+    }
+  }
+);
+
+module.exports = router;
