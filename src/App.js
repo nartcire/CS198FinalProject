@@ -1,5 +1,4 @@
 import Board from './Components/Board.jsx';
-import { level } from './Components/Board.jsx'
 import "./Styles/App.css"
 
 
