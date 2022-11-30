@@ -1,34 +1,7 @@
 #tile {
     width: 32px;
     height: 32px;
-    border-style: solid;
-    border-color: black;
     text-align: center;
     font-weight: bold;
     box-sizing: border-box;
-}
-
-.Wall {
-    background-color: tan;
-}
-
-.Character {
-    background-image: url(./Sprites/Player.png);
-    background-repeat: no-repeat;
-}
-
-.Enemy {
-    background-color: red;
-}
-
-.Floor {
-    background-color: beige;
-}
-
-.Key {
-    background-color: green;
-}
-
-.Exit {
-    background-color: grey;
 }

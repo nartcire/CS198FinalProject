@@ -4,3 +4,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.gameWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}

@@ -1,6 +1,8 @@
 import {React, useState, useEffect} from "react";
 import Tile from "./Tile.jsx";
 import "../Styles/Board.css";
+import Counter from "./Counter.jsx";
+import FloorCounter from "./FloorCounter.jsx";
 
 let level = 1;
 
@@ -111,6 +113,7 @@ const Board = () => {
   let hasKey = false;
   let beat = false;
   let currentCharacterSprite = 2;
+  let [numOfSteps, setNumOfSteps] = useState(0);
 
   useEffect(() => {
     document.addEventListener("keydown", detectKeyDown, true)
@@ -149,6 +152,7 @@ const Board = () => {
     }
 
     if (isValidXY(currentXY[0], currentXY[1])) {
+      incrementCounter();
       let key = isKey(currentXY[0], currentXY[1]);
 
       if (key) {
@@ -201,6 +205,12 @@ const Board = () => {
     setBoard(Board);
   }
 
+  const incrementCounter = () => {
+    numOfSteps++;
+    setNumOfSteps(numOfSteps);
+    console.log(numOfSteps);
+  }
+
   const isValidXY = (row, col) => {
     const tileType = board[row][col];
     if (tileType === 0 || tileType === 3) {
@@ -244,11 +254,12 @@ const Board = () => {
   }
 
   return (
-    <div className="board">
-      {display(convertBoard())}
+    <div className="gameWrapper">
+      <Counter numSteps={numOfSteps}></Counter>
+      <FloorCounter levelNum={level}></FloorCounter>
+      <div className="board">{display(convertBoard())}</div>
     </div>
   );
 };
 
 export default Board;
-export {level};
