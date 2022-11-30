@@ -15,6 +15,7 @@ const Board = () => {
   //4 - Key
   //5 - Exit
   //6 - CharacterWithKey
+  //7 - DamagedCharacter
 
   const one = 
   [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -261,6 +262,12 @@ const Board = () => {
       ourXY[0] = currentXY[0];
       ourXY[1] = currentXY[1];
       updateXY(currentXY[0], currentXY[1]);
+
+      if (isNearSoap()) {
+        soapPenalty();
+        board[ourXY[0]][ourXY[1]] = 7;
+      }
+
       if (beat) {
         level ++;
         currentCharacterSprite = 2;
@@ -304,6 +311,11 @@ const Board = () => {
     numOfSteps++;
     setNumOfSteps(numOfSteps);
     console.log(numOfSteps);
+  }
+
+  const soapPenalty = () => {
+    numOfSteps += 5;
+    setNumOfSteps(numOfSteps);
   }
 
   const updateEnemy1XY = (row, col) => {
@@ -350,6 +362,40 @@ const Board = () => {
   const isKey = (row, col) => {
     const tileType = board[row][col];
     if (tileType === 4) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  const isNearSoap = () => {
+    const row = ourXY[0];
+    const col = ourXY[1];
+
+    const left = [row, col - 1];
+    const right = [row, col + 1];
+    const up = [row - 1, col];
+    const down = [row + 1, col];
+    const topLeft = [row - 1, col - 1];
+    const topRight = [row - 1, col + 1];
+    const bottomLeft = [row + 1, col - 1];
+    const bottomRight = [row + 1, col + 1];
+
+    if (board[left[0]][left[1]] === 3) {
+      return true;
+    } else if (board[right[0]][right[1]] === 3) {
+      return true;
+    } else if (board[up[0]][up[1]] === 3) {
+      return true;
+    } else if (board[down[0]][down[1]] === 3) {
+      return true;
+    } else if (board[topLeft[0]][topLeft[1]] === 3) {
+      return true;
+    } else if (board[topRight[0]][topRight[1]] === 3) {
+      return true;
+    } else if (board[bottomLeft[0]][bottomLeft[1]] === 3) {
+      return true;
+    } else if (board[bottomRight[0]][bottomRight[1]] === 3) {
       return true;
     } else {
       return false;

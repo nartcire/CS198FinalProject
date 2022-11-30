@@ -6,6 +6,7 @@ import Key from "../Styles/Sprites/Key.png";
 import Wall from "../Styles/Sprites/Wall.png";
 import Floor from "../Styles/Sprites/Floor.png";
 import PlayerKey from "../Styles/Sprites/PlayerWithKey.png"
+import PlayerDamage from "../Styles/Sprites/PlayerDamage.png"
 
 
 const Tile = (props) => {
@@ -26,6 +27,8 @@ const Tile = (props) => {
         return Enemy;
       case 6:
         return PlayerKey;
+      case 7:
+        return PlayerDamage;
       default:
         return Wall;
     }
