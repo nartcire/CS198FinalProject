@@ -12,6 +12,7 @@ const Board = () => {
   //3 - Enemy
   //4 - Key
   //5 - Exit
+  //6 - CharacterWithKey
 
   const one = 
   [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -109,6 +110,7 @@ const Board = () => {
   const [ourXY, setOurXY] = useState([1, 1]);
   let hasKey = false;
   let beat = false;
+  let currentCharacterSprite = 2;
 
   useEffect(() => {
     document.addEventListener("keydown", detectKeyDown, true)
@@ -151,16 +153,19 @@ const Board = () => {
 
       if (key) {
         hasKey = true;
+        currentCharacterSprite = 6;
         console.log(hasKey);
       }
 
       board[ourXY[0]][ourXY[1]] = 1;
-      board[currentXY[0]][currentXY[1]] = 2;
+      board[currentXY[0]][currentXY[1]] = currentCharacterSprite;
       ourXY[0] = currentXY[0];
       ourXY[1] = currentXY[1];
       updateXY(currentXY[0], currentXY[1]);
       if (beat) {
         level ++;
+        currentCharacterSprite = 2;
+        updateXY(currentXY[0], currentXY[1]);
         if (level === 2) {
           board = two;
           updateBoard(two);

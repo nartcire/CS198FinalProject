@@ -13,7 +13,8 @@
 }
 
 .Character {
-    background-color: blue;
+    background-image: url(./Sprites/Player.png);
+    background-repeat: no-repeat;
 }
 
 .Enemy {
