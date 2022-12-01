@@ -6,11 +6,22 @@
     background-color: #2F3B42;
 }
 
+@font-face {
+    font-family: VT323;
+    src: url(./Fonts/VT323/VT323-Regular.ttf);
+}
+
+
+@font-face {
+    font-family: Hind;
+    src: url(./Fonts/Hind/Hind-Bold.ttf);
+}
+
 h1 {
-    font-family: 'Monaco';
+    font-family: 'Hind';
     font-style: normal;
     font-weight: 700;
-    font-size: 60px;
+    font-size: 70px;
     line-height: 102px;
     text-align: center;
     letter-spacing: 0.25em;
@@ -21,7 +32,7 @@ h1 {
 
 h2 {
     margin-top: 0px;
-    font-family: 'Monaco';
+    font-family: 'VT323';
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
