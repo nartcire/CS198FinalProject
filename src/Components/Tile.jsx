@@ -7,6 +7,7 @@ import Wall from "../Styles/Sprites/Wall.png";
 import Floor from "../Styles/Sprites/Floor.png";
 import PlayerKey from "../Styles/Sprites/PlayerWithKey.png"
 import PlayerDamage from "../Styles/Sprites/PlayerDamage.png"
+import LockedDoor from "../Styles/Sprites/Keyhole.png"
 
 
 const Tile = (props) => {
@@ -24,7 +25,7 @@ const Tile = (props) => {
       case 4:
         return Key;
       case 5:
-        return Enemy;
+        return LockedDoor;
       case 6:
         return PlayerKey;
       case 7:
