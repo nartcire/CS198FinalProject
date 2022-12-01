@@ -8,6 +8,21 @@
 .gameWrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.Counters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    font-family: VT323;
+    color: #FFFFFF;
+    width: 1280px;
+}
+
+.Counters>* {
+    background: #478FB4;
+    padding: 5px;
+    font-size: 20px;
 }

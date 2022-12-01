@@ -3,6 +3,7 @@ import Tile from "./Tile.jsx";
 import "../Styles/Board.css";
 import Counter from "./Counter.jsx";
 import FloorCounter from "./FloorCounter.jsx";
+import TotalCounter from "./TotalCounter.jsx";
 
 let level = 1;
 
@@ -115,6 +116,7 @@ const Board = () => {
   let beat = false;
   let currentCharacterSprite = 2;
   let [numOfSteps, setNumOfSteps] = useState(0);
+  let [totalNumOfSteps, setTotalNumOfSteps] = useState(0);
   let [enemy1XY, setEnemy1XY] = useState([11, 19]);
   let [enemy2XY, setEnemy2XY] = useState([18, 1]);
   let [enemy3XY, setEnemy3XY] = useState([1, 38]);
@@ -248,7 +250,7 @@ const Board = () => {
     }
 
     if (isValidXY(currentXY[0], currentXY[1])) {
-      incrementCounter();
+      incrementCounters();
       let key = isKey(currentXY[0], currentXY[1]);
 
       if (key) {
@@ -270,6 +272,7 @@ const Board = () => {
 
       if (beat) {
         level ++;
+        resetCounter();
         currentCharacterSprite = 2;
         updateXY(currentXY[0], currentXY[1]);
         if (level === 2) {
@@ -307,14 +310,22 @@ const Board = () => {
     setBoard(Board);
   }
 
-  const incrementCounter = () => {
+  const incrementCounters = () => {
     numOfSteps++;
+    totalNumOfSteps++
+    setTotalNumOfSteps(totalNumOfSteps);
     setNumOfSteps(numOfSteps);
-    console.log(numOfSteps);
   }
 
   const soapPenalty = () => {
     numOfSteps += 5;
+    totalNumOfSteps += 5;
+    setTotalNumOfSteps(totalNumOfSteps);
+    setNumOfSteps(numOfSteps);
+  }
+
+  const resetCounter = () => {
+    numOfSteps = 0;
     setNumOfSteps(numOfSteps);
   }
 
@@ -424,8 +435,11 @@ const Board = () => {
 
   return (
     <div className="gameWrapper">
-      <Counter numSteps={numOfSteps}></Counter>
-      <FloorCounter levelNum={level}></FloorCounter>
+      <div className="Counters">
+        <FloorCounter levelNum={level}></FloorCounter>
+        <Counter numSteps={numOfSteps}></Counter>
+        <TotalCounter numSteps={totalNumOfSteps}></TotalCounter>
+      </div>
       <div className="board">{display(convertBoard())}</div>
     </div>
   );
