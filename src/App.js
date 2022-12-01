@@ -6,7 +6,12 @@ const App = () => {
 
   return (
     <div className="page">
-      <h1> Soda Hall The Game 2022</h1>
+      <div className="title">
+        <div className="rightTriangle"></div>
+        <div className="leftTriangle"></div>
+        <h1>Soda Hall</h1>
+        <h2>The Game :: 2022 ed.</h2>
+      </div>
       <Board></Board>
     </div>
   );
