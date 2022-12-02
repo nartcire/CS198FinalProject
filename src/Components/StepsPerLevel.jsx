@@ -3,6 +3,7 @@ import "../Styles/StepsPerLevel.css";
 import StepLevel from "./StepLevel.jsx"
 
 const StepsPerLevel = (props) => {
+
     return(
         <div className="levelStepDisplay">
             <div className="levelStepTitle">STEPS PER LEVEL</div>

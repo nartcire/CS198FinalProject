@@ -277,30 +277,25 @@ const Board = () => {
 
       if (beat) {
         level ++;
-        resetCounter();
         currentCharacterSprite = 2;
         updateXY(currentXY[0], currentXY[1]);
         if (level === 2) {
-          stepsForLevel1 = numOfSteps;
-          setStepsForLevel1(stepsForLevel1);
+          updateStepsForLevel1();
           board = two;
           updateBoard(two);
         }
         if (level === 3) {
-          stepsForLevel2 = numOfSteps;
-          setStepsForLevel2(stepsForLevel2);
+          updateStepsForLevel2();
           board = three;
           updateBoard(three)
         }
         if (level === 4) {
-          stepsForLevel3 = numOfSteps;
-          setStepsForLevel3(stepsForLevel3);
+          updateStepsForLevel3();
           board = four;
           updateBoard(four)
         }
         if (level === 5) {
-          stepsForLevel4 = numOfSteps;
-          setStepsForLevel4(stepsForLevel4);
+          updateStepsForLevel4();
           //victory condition after beating 4 levels
         }
         resetCounter();
@@ -359,6 +354,27 @@ const Board = () => {
     enemy3XY[0] = row;
     enemy3XY[1] = col;
     setEnemy3XY(enemy3XY);
+  }
+
+  const updateStepsForLevel1 = () => {
+    stepsForLevel1 = numOfSteps;
+    setStepsForLevel1(stepsForLevel1);
+    console.log("steps:", stepsForLevel1)
+  }
+
+  const updateStepsForLevel2 = () => {
+    stepsForLevel2 = numOfSteps;
+    setStepsForLevel2(stepsForLevel2);
+  }
+
+  const updateStepsForLevel3 = () => {
+    stepsForLevel3 = numOfSteps;
+    setStepsForLevel3(stepsForLevel3);
+  }
+
+  const updateStepsForLevel4 = () => {
+    stepsForLevel4 = numOfSteps;
+    setStepsForLevel4(stepsForLevel4);
   }
 
   const isValidXY = (row, col) => {
