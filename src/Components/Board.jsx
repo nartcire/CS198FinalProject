@@ -6,6 +6,7 @@ import FloorCounter from "./FloorCounter.jsx";
 import TotalCounter from "./TotalCounter.jsx";
 import StepsPerLevel from "./StepsPerLevel.jsx"
 import LeaderBoard from "./Leadeboard.jsx"
+import axios from 'axios';
 
 let level = 1;
 
@@ -126,6 +127,7 @@ const Board = () => {
   let [stepsForLevel2, setStepsForLevel2] = useState(0);
   let [stepsForLevel3, setStepsForLevel3] = useState(0);
   let [stepsForLevel4, setStepsForLevel4] = useState(0);
+  let name;
 
   useEffect(() => {
     document.addEventListener("keydown", detectKeyDown, true)
@@ -303,7 +305,15 @@ const Board = () => {
         }
         if (level === 5) {
           updateStepsForLevel4();
-          //victory condition after beating 4 levels
+          name = prompt("Enter Name");
+          level = 0;
+          let post = {
+            username: name,
+            score: totalNumOfSteps,
+          }
+          axios.post('http://localhost:4000/user/signup', post).then((response) => console.log(response))
+          .catch((error) => console.log(error));
+          setBoard(board);
         }
         resetCounter();
         console.log(beat);

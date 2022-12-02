@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 const User = require("../models/User");
+const app = express();
+const cors = require("cors");
+router.use(cors());
 
 /**
  * @method - POST
@@ -60,13 +63,13 @@ router.post(
   }
 );
 
-router.get("/leaderboard", async(req, res) => {
-    const cursor = User.collection.find().sort({score: -1});
-    const data = await cursor.toArray();
-    data.forEach((result, i) => {
-        console.log(result.username, result.score);
-    });
-    return res.json(data);
+router.get("/leaderboard", async (req, res) => {
+  const cursor = User.collection.find().sort({ score: 1 });
+  const data = await cursor.toArray();
+  data.forEach((result, i) => {
+    console.log(result.username, result.score);
+  });
+  return res.json(data);
 });
 
 module.exports = router;
