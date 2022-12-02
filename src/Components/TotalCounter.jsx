@@ -2,7 +2,7 @@ import React from "react";
 
 const TotalCounter = (props) => {
     return(
-        <div>Total Steps: {props.numSteps}</div>
+        <div>TOTAL STEPS: {props.numSteps}</div>
     );
 }
 

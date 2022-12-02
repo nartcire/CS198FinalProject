@@ -4,6 +4,7 @@ import "../Styles/Board.css";
 import Counter from "./Counter.jsx";
 import FloorCounter from "./FloorCounter.jsx";
 import TotalCounter from "./TotalCounter.jsx";
+import StepsPerLevel from "./StepsPerLevel.jsx"
 
 let level = 1;
 
@@ -120,6 +121,10 @@ const Board = () => {
   let [enemy1XY, setEnemy1XY] = useState([11, 19]);
   let [enemy2XY, setEnemy2XY] = useState([18, 1]);
   let [enemy3XY, setEnemy3XY] = useState([1, 38]);
+  let [stepsForLevel1, setStepsForLevel1] = useState(0);
+  let [stepsForLevel2, setStepsForLevel2] = useState(0);
+  let [stepsForLevel3, setStepsForLevel3] = useState(0);
+  let [stepsForLevel4, setStepsForLevel4] = useState(0);
 
   useEffect(() => {
     document.addEventListener("keydown", detectKeyDown, true)
@@ -272,24 +277,28 @@ const Board = () => {
 
       if (beat) {
         level ++;
-        resetCounter();
         currentCharacterSprite = 2;
         updateXY(currentXY[0], currentXY[1]);
         if (level === 2) {
+          updateStepsForLevel1();
           board = two;
           updateBoard(two);
         }
         if (level === 3) {
+          updateStepsForLevel2();
           board = three;
           updateBoard(three)
         }
         if (level === 4) {
+          updateStepsForLevel3();
           board = four;
           updateBoard(four)
         }
         if (level === 5) {
+          updateStepsForLevel4();
           //victory condition after beating 4 levels
         }
+        resetCounter();
         console.log(beat);
         beat = false;
         hasKey = false;
@@ -345,6 +354,27 @@ const Board = () => {
     enemy3XY[0] = row;
     enemy3XY[1] = col;
     setEnemy3XY(enemy3XY);
+  }
+
+  const updateStepsForLevel1 = () => {
+    stepsForLevel1 = numOfSteps;
+    setStepsForLevel1(stepsForLevel1);
+    console.log("steps:", stepsForLevel1)
+  }
+
+  const updateStepsForLevel2 = () => {
+    stepsForLevel2 = numOfSteps;
+    setStepsForLevel2(stepsForLevel2);
+  }
+
+  const updateStepsForLevel3 = () => {
+    stepsForLevel3 = numOfSteps;
+    setStepsForLevel3(stepsForLevel3);
+  }
+
+  const updateStepsForLevel4 = () => {
+    stepsForLevel4 = numOfSteps;
+    setStepsForLevel4(stepsForLevel4);
   }
 
   const isValidXY = (row, col) => {
@@ -441,6 +471,9 @@ const Board = () => {
         <TotalCounter numSteps={totalNumOfSteps}></TotalCounter>
       </div>
       <div className="board">{display(convertBoard())}</div>
+      <div className="bottomGui">
+        <StepsPerLevel firstLevel={stepsForLevel1} secondLevel={stepsForLevel2} thirdLevel={stepsForLevel3} fourthLevel={stepsForLevel4}></StepsPerLevel>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     background-color: #2F3B42;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -21,7 +22,7 @@ h1 {
     font-family: 'Hind';
     font-style: normal;
     font-weight: 700;
-    font-size: 70px;
+    font-size: 80px;
     line-height: 102px;
     text-align: center;
     letter-spacing: 0.25em;
@@ -31,7 +32,7 @@ h1 {
 }
 
 h2 {
-    margin-top: 0px;
+    margin-top: -10px;
     font-family: 'VT323';
     font-style: normal;
     font-weight: 400;
