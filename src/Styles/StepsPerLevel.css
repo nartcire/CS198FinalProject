@@ -1,0 +1,22 @@
+.levelStepDisplay {
+    background-color: #478FB4;
+    font-weight: 400;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 325px;
+}
+
+.levelStepTitle {
+    font-size: 50px;
+    background-color: #30637C;
+    text-align: center;
+}
+
+.levelNumWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    gap: 20px;
+}

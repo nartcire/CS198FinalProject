@@ -2,7 +2,7 @@ import React from 'react';
 
 const FloorCounter = (props) => {
     return(
-        <div>Level: {props.levelNum}</div>
+        <div>LEVEL: {props.levelNum}</div>
     ); 
 }
 

@@ -9,6 +9,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
+    font-family: VT323;
 }
 
 .Counters {
@@ -16,13 +18,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-family: VT323;
-    color: #FFFFFF;
     width: 1280px;
 }
 
 .Counters>* {
     background: #478FB4;
     padding: 5px;
-    font-size: 20px;
+    font-size: 30px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 400;
+}
+
+.bottomGui {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 430px;
 }
