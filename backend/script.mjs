@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import promptSync from 'prompt-sync';
+import Leaderboard from "../src/Components/Leadeboard.jsx";
 const prompt = promptSync();
 const express = require("express");
 let USERNAME = prompt('Enter Username: ');

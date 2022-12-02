@@ -17,7 +17,7 @@ const Leaderboard = (props) => {
     useEffect(() => {
         getLeaderboard();
       }, []);
-      
+
     return(
         <div className="leaderBoard">
             <div className="leaderboardTitle">HALL OF FAME</div>

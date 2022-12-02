@@ -30,7 +30,7 @@ router.post(
 
     const { username, score } = req.body;
     try {
-      user = new User({
+      let user = new User({
         username,
         score,
       });

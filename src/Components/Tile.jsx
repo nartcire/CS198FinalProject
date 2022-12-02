@@ -8,6 +8,7 @@ import Floor from "../Styles/Sprites/Floor.png";
 import PlayerKey from "../Styles/Sprites/PlayerWithKey.png"
 import PlayerDamage from "../Styles/Sprites/PlayerDamage.png"
 import LockedDoor from "../Styles/Sprites/Keyhole.png"
+import GSI from "../Styles/Sprites/GSI.png"
 
 
 const Tile = (props) => {
@@ -30,6 +31,8 @@ const Tile = (props) => {
         return PlayerKey;
       case 7:
         return PlayerDamage;
+      case 8:
+        return GSI;
       default:
         return Wall;
     }
