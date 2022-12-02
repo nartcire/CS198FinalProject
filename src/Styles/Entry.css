@@ -1,0 +1,12 @@
+.entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 35px;
+}
+
+.entry>* {
+    width: 450px;
+    text-align: left;
+    padding-left: 150px;
+}

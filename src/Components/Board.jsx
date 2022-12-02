@@ -5,6 +5,7 @@ import Counter from "./Counter.jsx";
 import FloorCounter from "./FloorCounter.jsx";
 import TotalCounter from "./TotalCounter.jsx";
 import StepsPerLevel from "./StepsPerLevel.jsx"
+import LeaderBoard from "./Leadeboard.jsx"
 
 let level = 1;
 
@@ -87,7 +88,7 @@ const Board = () => {
 
   const four = 
   [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0],
+  [0, 5, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0],
   [0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 3, 1, 0, 1, 1, 0],
   [0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0],
   [0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0],
@@ -497,6 +498,7 @@ const Board = () => {
       <div className="board">{display(convertBoard())}</div>
       <div className="bottomGui">
         <StepsPerLevel firstLevel={stepsForLevel1} secondLevel={stepsForLevel2} thirdLevel={stepsForLevel3} fourthLevel={stepsForLevel4}></StepsPerLevel>
+        <LeaderBoard></LeaderBoard>
       </div>
     </div>
   );
